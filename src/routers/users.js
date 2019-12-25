@@ -60,7 +60,7 @@ router.post('/users/logoutAll', auth, async (req, res) => {
 router.get('/users/me', auth, async (req, res) => {
 
     try {
-        // const users = await User.find({})
+        const users = await User.find({})
         res.send(req.user)
     } catch (e) {
         res.status(500).send()
@@ -143,4 +143,3 @@ router.get('/users/:id/avatar', async (req, res) => {
 })
 
 module.exports = router
-
