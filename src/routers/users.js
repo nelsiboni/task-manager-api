@@ -28,7 +28,6 @@ router.post('/users/login', async (req, res) => {
         res.send({user, token})
     }
     catch (e) {
-        console.log(e)
         res.status(400).send()
     }
 
@@ -80,7 +79,6 @@ router.patch('/users/me', auth, async (req, res) => {
         // const user = await User.findById(req.params.id)
 
         updates.forEach((update) => req.user[update] = req.body[update])
-        console.log(req.user)
         await req.user.save()
         res.send(req.user)
     } catch (e) {
